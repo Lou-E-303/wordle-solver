@@ -35,6 +35,3 @@ for i in range(1, 7):
     possible_words = find_possible_words(guess, yellow_letters, grey_letters, previous_guesses)
 
     guesses = suggest_next_guess(possible_words)
-
-    # Now order possible guesses by letter frequency
-    # Finally set guess to the most likely guess
