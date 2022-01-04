@@ -1,7 +1,7 @@
 from utils.find_possible_words import find_possible_words
 from utils.suggest_next_guess import suggest_next_guess
 
-guesses = [('arose', 31320)]
+guesses = [('arose', 31320), ('irate', 28597), ('steam', 27826)]
 previous_guesses = []
 yellow_letters = {}
 grey_letters = []
@@ -9,8 +9,9 @@ grey_letters = []
 acceptable_states = ['GREY', 'YELLOW', 'GREEN']
 
 for i in range(1, 7):
+    print(guesses)
     guess = guesses[0][0]
-    print("Try '" + guess + "'.")
+    print("Try '" + guess + "', or one of the other top guesses listed above.")
 
     guess = input("What guess did you choose? ")
     guess = guess.lower()
@@ -34,8 +35,6 @@ for i in range(1, 7):
     possible_words = find_possible_words(guess, yellow_letters, grey_letters, previous_guesses)
 
     guesses = suggest_next_guess(possible_words)
-
-    print(guesses)
 
     # Now order possible guesses by letter frequency
     # Finally set guess to the most likely guess
