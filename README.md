@@ -13,7 +13,11 @@ Dictionary text file found [here](https://raw.githubusercontent.com/powerlanguag
 
 ***There's no need to generate the data as I've done it for you***, but if you want to delete all the resources (except word_list.txt) and see for yourself how it works:
 
-Run `python3 scripts/generate_five_letter_words.py` in your terminal. Do this twice - once as normal and once without the newline `+"/n"` here: `five_letter_words.write(word+"\n")`(and with a new filename). This will give you the five letter words in both formats needed for the scripts to work (I'm lazy sorry)
+Run `python3 scripts/generate_five_letter_words.py` in your terminal.
+
+Do this twice - once as normal and once without the newline `+"/n"` here: `five_letter_words.write(word+"\n")`(and with a new filename).
+
+This will give you the five letter words in both formats needed for the scripts to work (I'm lazy sorry)
 
 And that should be it, you're good to go!
 
