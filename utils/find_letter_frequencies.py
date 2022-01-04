@@ -9,12 +9,11 @@ def find_letter_frequencies():
 
     letter_frequencies = Counter(str(five_letter_words))
 
-    letter_frequencies.pop('\\')
+    print(letter_frequencies)
+
     letter_frequencies.pop('\'')
-    letter_frequencies.pop('\"')
     letter_frequencies.pop('{')
     letter_frequencies.pop('}')
-    letter_frequencies.pop('/')
 
     letter_frequencies_most_common = dict(letter_frequencies.most_common())
 
