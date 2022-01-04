@@ -1,20 +1,21 @@
-from find_possible_words import find_possible_words
+from utils.find_possible_words import find_possible_words
+from utils.suggest_next_guess import suggest_next_guess
 
-
-guess = 'arose'
+guesses = [('arose', 31320)]
 previous_guesses = []
-
-# N for Not In Word
-# Y for Yellow (in word somewhere)
-# G for Green (in word at this index)
+yellow_letters = {}
+grey_letters = []
 
 acceptable_states = ['GREY', 'YELLOW', 'GREEN']
 
 for i in range(1, 7):
+    guess = guesses[0][0]
     print("Try '" + guess + "'.")
-    previous_guesses.append(guess)
 
-    yellow_letters = {}
+    guess = input("What guess did you choose? ")
+    guess = guess.lower()
+
+    previous_guesses.append(guess)
 
     for j in range(0, 5):
         tile_state = input("What colour was the '" + guess[j] + "' tile? (GREY/YELLOW/GREEN)? ").upper()
@@ -23,13 +24,18 @@ for i in range(1, 7):
             yellow_letters[j] = guess[j]
             guess = guess[0:j] + '*' + guess[j + 1:len(guess)]
         elif tile_state == 'GREY':
+            grey_letters.append(guess[j])
             guess = guess[0:j] + '*' + guess[j+1:len(guess)]
         elif tile_state == 'GREEN':
             guess = guess[0:j] + guess[j] + guess[j + 1:len(guess)]
 
-        print(guess)
+    print(guess)
 
-    possible_words = find_possible_words(guess, yellow_letters, previous_guesses)
+    possible_words = find_possible_words(guess, yellow_letters, grey_letters, previous_guesses)
+
+    guesses = suggest_next_guess(possible_words)
+
+    print(guesses)
 
     # Now order possible guesses by letter frequency
     # Finally set guess to the most likely guess
