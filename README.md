@@ -17,6 +17,12 @@ This will provide you with a reasonable (near-optimal, I think) first guess and 
 
 - **Jan 4th:** v0.1 up and running!
 
+Next Steps:
+
+- Input validation
+- Better dictionary
+- Better input method
+
 # License:
 
 Do what you want with it.

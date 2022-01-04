@@ -9,8 +9,6 @@ def find_letter_frequencies():
 
     letter_frequencies = Counter(str(five_letter_words))
 
-    print(letter_frequencies)
-
     letter_frequencies.pop('\'')
     letter_frequencies.pop('{')
     letter_frequencies.pop('}')
