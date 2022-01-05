@@ -11,8 +11,8 @@ def word_contains_no_punctuation(word):
     return True
 
 
-english_words = load_all_words('resources/word_list.txt')
-five_letter_words = open("resources/five_letter_words.txt", "w+")
+english_words = load_all_words('../resources/word_list.txt')
+five_letter_words = open("../resources/five_letter_words.txt", "w+")
 
 for word in english_words:
     if len(word) == 5 and word_contains_no_punctuation(word):

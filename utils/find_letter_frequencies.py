@@ -1,6 +1,5 @@
 from collections import Counter
 from utils.load_all_words import load_all_words
-import json
 
 
 def find_letter_frequencies():
@@ -14,9 +13,6 @@ def find_letter_frequencies():
     letter_frequencies.pop('}')
 
     letter_frequencies_most_common = dict(letter_frequencies.most_common())
-
-    with open('resources/letter_frequencies.json', 'w') as letter_frequencies_json:
-        json.dump(letter_frequencies_most_common, letter_frequencies_json)
 
     return letter_frequencies_most_common
 
