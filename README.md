@@ -17,12 +17,7 @@ This will provide you with a reasonable (near-optimal, I think) first guess and 
 
 - **Jan 4th:** v0.1 up and running!
 
-Next Steps:
-
-- Don't try to use words with green & yellow letters in places we know aren't correct
-- Better input method
-- Input validation
-- Better dictionary
+[Trello Board.](https://trello.com/b/6UknNHIy/wordle-solver)
 
 # License:
 
