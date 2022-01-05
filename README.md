@@ -19,9 +19,10 @@ This will provide you with a reasonable (near-optimal, I think) first guess and 
 
 Next Steps:
 
+- Don't try to use words with green & yellow letters in places we know aren't correct
+- Better input method
 - Input validation
 - Better dictionary
-- Better input method
 
 # License:
 
