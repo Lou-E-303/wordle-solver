@@ -5,6 +5,7 @@ guesses = [('arose', 31320), ('irate', 28597), ('steam', 27826)]
 previous_guesses = []
 yellow_letters = {}
 grey_letters = []
+green_letters = []
 
 acceptable_states = ['GREY', 'YELLOW', 'GREEN']
 
@@ -25,9 +26,11 @@ for i in range(1, 7):
             yellow_letters[j] = guess[j]
             guess = guess[0:j] + '*' + guess[j + 1:len(guess)]
         elif tile_state == 'GREY':
-            grey_letters.append(guess[j])
+            if (guess[j] not in yellow_letters.values()) and (guess[j] not in green_letters):
+                grey_letters.append(guess[j])
             guess = guess[0:j] + '*' + guess[j+1:len(guess)]
         elif tile_state == 'GREEN':
+            green_letters.append(guess[j])
             guess = guess[0:j] + guess[j] + guess[j + 1:len(guess)]
 
     print(guess)

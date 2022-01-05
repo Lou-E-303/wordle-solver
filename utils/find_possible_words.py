@@ -4,7 +4,8 @@ from utils.load_all_words import load_all_words
 # 1. They have not been guessed before ✅
 # 2. They have the green letters in the correct indices ✅
 # 3. They have the yellow letters in them somewhere (but not at the same index as previous guess) ✅
-# 4. They do not have the grey letters in them anywhere ✅
+# 4. They haven't got the grey letters in them anywhere ✅
+# 5. They haven't got green or yellow letters in indices which have failed before ❌
 
 
 def find_possible_words(guess, yellow_letters, grey_letters, previous_guesses):
