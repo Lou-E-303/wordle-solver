@@ -7,8 +7,6 @@ yellow_letters = {}
 grey_letters = []
 green_letters = []
 
-acceptable_states = ['GREY', 'YELLOW', 'GREEN']
-
 for i in range(1, 7):
     print(guesses)
     guess = guesses[0][0]
@@ -19,17 +17,21 @@ for i in range(1, 7):
 
     previous_guesses.append(guess)
 
-    for j in range(0, 5):
-        tile_state = input("What colour was the '" + guess[j] + "' tile? (GREY/YELLOW/GREEN)? ").upper()
+    result = input("\n\nPlease enter the result you got back from Wordle. \n"
+                   "Use N for Not In Word, Y for Yellow and G for Green. \n"
+                   "For example, if you entered 'arose' and the R and S were \n"
+                   "yellow and green respectively, you should enter NYNGN. \n"
+                   "\nEnter your result now: ")
 
-        if tile_state == 'YELLOW':
+    for j in range(0, 5):
+        if result[j] == 'Y':
             yellow_letters[j] = guess[j]
             guess = guess[0:j] + '*' + guess[j + 1:len(guess)]
-        elif tile_state == 'GREY':
+        elif result[j] == 'N':
             if (guess[j] not in yellow_letters.values()) and (guess[j] not in green_letters):
                 grey_letters.append(guess[j])
             guess = guess[0:j] + '*' + guess[j+1:len(guess)]
-        elif tile_state == 'GREEN':
+        elif result[j] == 'G':
             green_letters.append(guess[j])
             guess = guess[0:j] + guess[j] + guess[j + 1:len(guess)]
 
