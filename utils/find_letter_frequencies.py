@@ -11,6 +11,3 @@ def find_letter_frequencies():
     letter_frequencies_most_common = dict(letter_frequencies.most_common())
 
     return letter_frequencies_most_common
-
-    # A, E, S, O, R are the most common letters
-    # Therefore by this metric 'arose' should be our starting word
