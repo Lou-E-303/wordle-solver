@@ -5,18 +5,18 @@ Wordle Solver v0.1
 
 A program which tries to solve [Wordle](https://www.powerlanguage.co.uk/wordle/) puzzles as efficiently as possible. Perfection would be nice but really I'd just like this thing to be able to solve them better than me.
 
-Dictionary text file found [here](https://raw.githubusercontent.com/powerlanguage/word-lists/master/word-list-raw.txt) with thanks to Wordle creator [Josh Wardle](https://github.com/powerlanguage).
-
 # Run:
 
 Run `python3 solve.py`.
 
-This will provide you with a reasonable (near-optimal, I think) first guess and then ask you to input the colours of the tiles once your guess has been made. It will then provide its best guess at the word based upon letter frequencies of five-letter words in English using the information it has from your previous guesses.
+This will provide you with a reasonable first guess<sup>1</sup> and then ask you to input the colours of the tiles once your guess has been made. It will then provide its best guess at the word based upon letter frequencies of five-letter words in English using the information it has from your previous guesses.
 
+<sup>1</sup> This solver is stubborn - it won't use any word as a guess which is not a valid answer. [Technically there are better first guesses](https://www.theringer.com/2022/1/7/22870249/what-to-do-when-playing-the-word-game-wordle-isnt-enough-solve-it).
 # Changelog
 
 - **Jan 4th:** v0.1 up and running!
 - **Jan 6th:** Added better input method
+- **Jan 8th:** Now using official Wordle dictionary
 
 [Trello Board.](https://trello.com/b/6UknNHIy/wordle-solver)
 

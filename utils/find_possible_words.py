@@ -1,4 +1,5 @@
-from utils.load_all_words import load_all_words
+from utils.valid_answers import get_valid_answers
+
 
 # Find all the words that fit the following criteria:
 # 1. They have not been guessed before ✅
@@ -9,7 +10,7 @@ from utils.load_all_words import load_all_words
 
 
 def find_possible_words(guess, yellow_letters, grey_letters, previous_guesses):
-    possible_words = load_all_words('resources/five_letter_words.txt')
+    possible_words = get_valid_answers()
 
     for word in possible_words.copy():
         if word in previous_guesses:

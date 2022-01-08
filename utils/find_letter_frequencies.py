@@ -1,16 +1,12 @@
 from collections import Counter
-from utils.load_all_words import load_all_words
+from utils.valid_answers import get_valid_answers
 
 
 def find_letter_frequencies():
 
-    five_letter_words = load_all_words('resources/five_letter_words_one_line.txt')
+    five_letter_words = get_valid_answers()
 
-    letter_frequencies = Counter(str(five_letter_words))
-
-    letter_frequencies.pop('\'')
-    letter_frequencies.pop('{')
-    letter_frequencies.pop('}')
+    letter_frequencies = Counter(''.join(five_letter_words))
 
     letter_frequencies_most_common = dict(letter_frequencies.most_common())
 
