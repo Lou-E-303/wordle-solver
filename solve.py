@@ -21,7 +21,7 @@ for i in range(1, 7):
                    "Use N for Not In Word, Y for Yellow and G for Green. \n"
                    "For example, if you entered 'arose' and the R and S were \n"
                    "yellow and green respectively, you should enter NYNGN. \n"
-                   "\nEnter your result now: ")
+                   "\nEnter your result now: ").upper()
 
     for j in range(0, 5):
         if result[j] == 'Y':

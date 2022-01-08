@@ -16,6 +16,7 @@ This will provide you with a reasonable (near-optimal, I think) first guess and 
 # Changelog
 
 - **Jan 4th:** v0.1 up and running!
+- **Jan 6th:** Added better input method
 
 [Trello Board.](https://trello.com/b/6UknNHIy/wordle-solver)
 
