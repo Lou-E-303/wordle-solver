@@ -1,25 +1,25 @@
 from utils.find_possible_words import find_possible_words
 from utils.suggest_next_guess import suggest_next_guess
 
-possible_guesses = [('alert', 4559), ('later', 4559), ('arose', 4534), ('irate', 4511), ('aisle', 4271), ('ratio', 4032)]
+possible_guesses = [('alert', 4559), ('later', 4559), ('arose', 4534), ('irate', 4511), ('aisle', 4271), ('ratio', 4032)] # TODO add 'rates', 'raise'
 previous_guesses = []
 yellow_letters = {}
 grey_letters = []
 green_letters = []
 
 
-def process_guess_letters(guess):
+def process_guess_letters(new_guess):
     for j in range(0, 5):
         if result[j] == 'Y':
-            yellow_letters[j] = guess[j]
-            guess = guess[0:j] + '*' + guess[j + 1:len(guess)]
+            yellow_letters[j] = new_guess[j]
+            new_guess = new_guess[0:j] + '*' + new_guess[j + 1:len(new_guess)]
         elif result[j] == 'X':
-            if (guess[j] not in yellow_letters.values()) and (guess[j] not in green_letters):
-                grey_letters.append(guess[j])
-            guess = guess[0:j] + '*' + guess[j + 1:len(guess)]
+            if (new_guess[j] not in yellow_letters.values()) and (new_guess[j] not in green_letters):
+                grey_letters.append(new_guess[j])
+            new_guess = new_guess[0:j] + '*' + new_guess[j + 1:len(new_guess)]
         elif result[j] == 'G':
-            green_letters.append(guess[j])
-    return guess
+            green_letters.append(new_guess[j])
+    return new_guess
 
 
 for i in range(1, 7):
