@@ -5,7 +5,7 @@ from utils.suggest_next_guess import suggest_next_guess
 possible_guesses = [('alert', 6), ('raise', 5), ('later', 4), ('arose', 3), ('irate', 2), ('aisle', 1), ('ratio', 0)]
 previous_guesses = []
 yellow_letters = {}
-grey_letters = []
+grey_letters = {}
 green_letters = []
 
 
@@ -15,8 +15,10 @@ def process_guess_letters(new_guess):
             yellow_letters[j] = new_guess[j]
             new_guess = new_guess[0:j] + '*' + new_guess[j + 1:len(new_guess)]
         elif result[j] == 'X':
-            if (new_guess[j] not in yellow_letters.values()) and (new_guess[j] not in green_letters):
-                grey_letters.append(new_guess[j])
+            if j in grey_letters:
+                grey_letters[j].append(new_guess[j])
+            else:
+                grey_letters[j] = [new_guess[j]]
             new_guess = new_guess[0:j] + '*' + new_guess[j + 1:len(new_guess)]
         elif result[j] == 'G':
             green_letters.append(new_guess[j])
@@ -50,6 +52,6 @@ for i in range(1, 7):
 
     print(guess)
 
-    possible_words = find_possible_words(guess, yellow_letters, grey_letters, previous_guesses)
+    possible_words = find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses)
 
     possible_guesses = suggest_next_guess(possible_words)
