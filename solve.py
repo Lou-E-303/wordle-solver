@@ -1,7 +1,7 @@
 from utils.find_possible_words import find_possible_words
 from utils.suggest_next_guess import suggest_next_guess
 
-possible_guesses = [('alert', 4559), ('later', 4559), ('arose', 4534), ('irate', 4511), ('aisle', 4271), ('ratio', 4032)] # TODO add 'rates', 'raise'
+possible_guesses = [('alert', 6), ('raise', 5)('later', 4), ('arose', 3), ('irate', 2), ('aisle', 1), ('ratio', 0)]
 previous_guesses = []
 yellow_letters = {}
 grey_letters = []
