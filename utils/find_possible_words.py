@@ -5,7 +5,7 @@ from utils.valid_answers import get_valid_answers
 # 1. They have not been guessed before ✅
 # 2. They have the green letters in the correct indices ✅
 # 3. They have the yellow letters in them somewhere (but not at the same index as previous guess) ✅
-# 4. They haven't got the grey letters in them anywhere ✅
+# 4. They haven't got the grey letters in them anywhere, unless the grey letter is also an unresolved yellow ✅
 # 5. They haven't got green or yellow letters in indices which have failed before ✅
 
 

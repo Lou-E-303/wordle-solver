@@ -15,6 +15,6 @@ def suggest_next_guess(possible_words):
 
     suggested_guesses = sorted(word_score_pairs.items(), key=lambda x: x[1], reverse=True)
 
-    return suggested_guesses
+    return suggested_guesses[0][0]
 
 

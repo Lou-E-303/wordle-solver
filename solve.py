@@ -1,8 +1,10 @@
 import sys
+import random
+
 from utils.find_possible_words import find_possible_words
 from utils.suggest_next_guess import suggest_next_guess
 
-possible_guesses = [('alert', 6), ('raise', 5), ('later', 4), ('arose', 3), ('irate', 2), ('aisle', 1), ('ratio', 0)]
+guess = "alert"
 previous_guesses = []
 yellow_letters = {}
 grey_letters = {}
@@ -26,15 +28,7 @@ def process_guess_letters(new_guess):
 
 
 for i in range(1, 7):
-    for guess in reversed(possible_guesses):
-        print(guess)
-
-    if len(possible_guesses) > 0:
-        guess = possible_guesses[0][0]
-
-    print("\nTry '" + guess + "', or one of the other top guesses listed above.")
-
-    guess = input("\nWhat guess did you choose? ").lower()
+    print("\nTry '" + guess + "'.")
 
     previous_guesses.append(guess)
 
@@ -45,13 +39,16 @@ for i in range(1, 7):
                    "\nEnter your result now: ").upper()
 
     if result == 'GGGGG':
-        print("\nCongrats on the win! 🎉 \n")
+        print("\nCongrats on the win! 🎉")
+
+        if random.random() < 0.8:
+            print("\nActually, you did nothing of value except to input my answers.")
+            print("You are only slightly more worthy of praise than a mindless chimp.")
+
         sys.exit()
 
     guess = process_guess_letters(guess)
 
-    print(guess)
-
     possible_words = find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses)
 
-    possible_guesses = suggest_next_guess(possible_words)
+    guess = suggest_next_guess(possible_words)
