@@ -6,13 +6,16 @@ from utils.suggest_next_guess import suggest_next_guess
 
 guess = "alert"
 previous_guesses = []
+green_letters = []
 yellow_letters = {}
 grey_letters = {}
-green_letters = []
+WORD_LENGTH = 5
+NUMBER_OF_GUESSES = 6
+MOODY_ROBOT_CHANCE = 0.3
 
 
 def process_guess_letters(new_guess):
-    for j in range(0, 5):
+    for j in range(WORD_LENGTH):
         if result[j] == 'Y':
             yellow_letters[j] = new_guess[j]
             new_guess = new_guess[0:j] + '*' + new_guess[j + 1:len(new_guess)]
@@ -27,7 +30,7 @@ def process_guess_letters(new_guess):
     return new_guess
 
 
-for i in range(1, 7):
+for i in range(NUMBER_OF_GUESSES):
     print("\nTry '" + guess + "'.")
 
     previous_guesses.append(guess)
@@ -41,7 +44,7 @@ for i in range(1, 7):
     if result == 'GGGGG':
         print("\nCongrats on the win! 🎉")
 
-        if random.random() < 0.8:
+        if random.random() < MOODY_ROBOT_CHANCE:
             print("\nActually, you did nothing of value except to input my answers.")
             print("You are only slightly more worthy of praise than a mindless chimp.")
 
