@@ -1,5 +1,4 @@
 import sys
-import random
 
 from utils.find_possible_words import find_possible_words
 from utils.suggest_next_guess import suggest_next_guess
@@ -11,7 +10,6 @@ yellow_letters = {}
 grey_letters = {}
 WORD_LENGTH = 5
 NUMBER_OF_GUESSES = 6
-MOODY_ROBOT_CHANCE = 0.3
 
 
 def handle_input():
@@ -29,11 +27,6 @@ def handle_input():
 def check_win(result):
     if result == 'GGGGG':
         print("\nCongrats on the win! 🎉")
-
-        if random.random() < MOODY_ROBOT_CHANCE:
-            print("\nActually, you did nothing of value except to input my answers.")
-            print("You are only slightly more worthy of praise than a mindless chimp.")
-
         sys.exit()
 
 

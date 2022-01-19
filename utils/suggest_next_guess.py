@@ -11,7 +11,8 @@ def suggest_next_guess(possible_words):
 
         for letter in word:
             score = score + letter_frequencies[letter]
-        word_score_pairs[word] = score
+
+            word_score_pairs[word] = score
 
     suggested_guesses = sorted(word_score_pairs.items(), key=lambda x: x[1], reverse=True)
 
