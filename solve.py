@@ -14,7 +14,30 @@ NUMBER_OF_GUESSES = 6
 MOODY_ROBOT_CHANCE = 0.3
 
 
-def process_guess_letters(new_guess):
+def handle_input():
+    print("\nTry '" + guess + "'.")
+
+    user_input = input("\nPlease enter the result you got back from Wordle. \n"
+                       "Use G for Green, Y for Yellow and X for Grey. \n"
+                       "For example, if you entered 'arose' and the R and S were \n"
+                       "yellow and green respectively, you should enter XYXGX. \n"
+                       "\nEnter your result now: ").upper()
+
+    return user_input
+
+
+def check_win(result):
+    if result == 'GGGGG':
+        print("\nCongrats on the win! 🎉")
+
+        if random.random() < MOODY_ROBOT_CHANCE:
+            print("\nActually, you did nothing of value except to input my answers.")
+            print("You are only slightly more worthy of praise than a mindless chimp.")
+
+        sys.exit()
+
+
+def process_guess_letters(new_guess, result):
     for j in range(WORD_LENGTH):
         if result[j] == 'Y':
             yellow_letters[j] = new_guess[j]
@@ -31,26 +54,13 @@ def process_guess_letters(new_guess):
 
 
 for i in range(NUMBER_OF_GUESSES):
-    print("\nTry '" + guess + "'.")
-
     previous_guesses.append(guess)
 
-    result = input("\nPlease enter the result you got back from Wordle. \n"
-                   "Use G for Green, Y for Yellow and X for Grey. \n"
-                   "For example, if you entered 'arose' and the R and S were \n"
-                   "yellow and green respectively, you should enter XYXGX. \n"
-                   "\nEnter your result now: ").upper()
+    wordle_result = handle_input()
 
-    if result == 'GGGGG':
-        print("\nCongrats on the win! 🎉")
+    check_win(wordle_result)
 
-        if random.random() < MOODY_ROBOT_CHANCE:
-            print("\nActually, you did nothing of value except to input my answers.")
-            print("You are only slightly more worthy of praise than a mindless chimp.")
-
-        sys.exit()
-
-    guess = process_guess_letters(guess)
+    guess = process_guess_letters(guess, wordle_result)
 
     possible_words = find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses)
 
