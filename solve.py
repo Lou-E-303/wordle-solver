@@ -46,15 +46,18 @@ def process_guess_letters(new_guess, result):
     return new_guess
 
 
-for i in range(NUMBER_OF_GUESSES):
-    previous_guesses.append(guess)
+if __name__ == "__main__":
+    for i in range(NUMBER_OF_GUESSES):
+        previous_guesses.append(guess)
 
-    wordle_result = handle_input()
+        wordle_result = handle_input()
 
-    check_win(wordle_result)
+        check_win(wordle_result)
 
-    guess = process_guess_letters(guess, wordle_result)
+        guess = process_guess_letters(guess, wordle_result)
 
-    possible_words = find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses)
+        possible_words = find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses)
 
-    guess = suggest_next_guess(possible_words)
+        guess = suggest_next_guess(possible_words)
+
+
