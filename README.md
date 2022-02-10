@@ -3,7 +3,7 @@ Wordle Solver v0.1
 
 # Intro:
 
-A program which tries to solve [Wordle](https://www.powerlanguage.co.uk/wordle/) puzzles as efficiently as possible. Perfection would be nice but really I'd just like this thing to be able to solve them better than me.
+A program which tries to solve [Wordle](https://www.powerlanguage.co.uk/wordle/) puzzles efficiently.
 
 # Run:
 
