@@ -7,9 +7,9 @@ A program which tries to solve [Wordle](https://www.powerlanguage.co.uk/wordle/)
 
 # Run:
 
-Run `python3 solve.py`.
+Run `python3 src/solve.py`.
 
-This will provide you with a reasonable first guess<sup>1</sup> and then ask you to input the colours of the tiles once your guess has been made. It will then provide its best guess at the word based upon letter frequencies of five-letter words in English using the information it has from your previous guesses.
+This will provide you with a reasonable first guess<sup>1</sup> and then ask you to input the colours of the tiles once your guess has been made. It will then provide its best guess at the word based upon letter frequencies of possible answers using the information it has from your previous guesses.
 
 <sup>1</sup> This solver is stubborn - it won't use any word as a guess which is not a valid answer. Technically, there are [<u>better</u>](https://matt-rickard.com/wordle-whats-the-best-starting-word/) first [<u>guesses</u>](https://www.theringer.com/2022/1/7/22870249/what-to-do-when-playing-the-word-game-wordle-isnt-enough-solve-it).
 # Changelog
