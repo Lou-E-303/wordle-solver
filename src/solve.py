@@ -44,18 +44,18 @@ def check_win(result):
 
 
 def process_guess_letters(new_guess, result):
-    for j in range(WORD_LENGTH):
-        if result[j] == 'Y':
-            yellow_letters[j] = new_guess[j]
-            new_guess = new_guess[0:j] + '*' + new_guess[j + 1:len(new_guess)]
-        elif result[j] == 'X':
-            if j in grey_letters:
-                grey_letters[j].append(new_guess[j])
+    for i in range(WORD_LENGTH):
+        if result[i] == 'Y':
+            yellow_letters[i] = new_guess[i]
+            new_guess = new_guess[0:i] + '*' + new_guess[i + 1:len(new_guess)]
+        elif result[i] == 'X':
+            if i in grey_letters:
+                grey_letters[i].append(new_guess[i])
             else:
-                grey_letters[j] = [new_guess[j]]
-            new_guess = new_guess[0:j] + '*' + new_guess[j + 1:len(new_guess)]
-        elif result[j] == 'G':
-            green_letters.append(new_guess[j])
+                grey_letters[i] = [new_guess[i]]
+            new_guess = new_guess[0:i] + '*' + new_guess[i + 1:len(new_guess)]
+        elif result[i] == 'G':
+            green_letters.append(new_guess[i])
     return new_guess
 
 
