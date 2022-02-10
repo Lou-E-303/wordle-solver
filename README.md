@@ -1,4 +1,4 @@
-Wordle Solver v0.1
+Wordle Solver v1.0
 =============
 
 # Intro:

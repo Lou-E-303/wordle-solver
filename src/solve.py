@@ -12,7 +12,7 @@ WORD_LENGTH = 5
 NUMBER_OF_GUESSES = 6
 
 
-def handle_input():
+def take_input():
     print("\nTry '" + guess + "'.")
 
     user_input = input("\nPlease enter the result you got back from Wordle. \n"
@@ -22,6 +22,19 @@ def handle_input():
                        "\nEnter your result now: ").upper()
 
     return user_input
+
+
+def validate_input(user_input):
+    if len(user_input) != 5:
+        print("\nInput invalid! Please enter only five letters. \n")
+        return False
+
+    for letter in user_input:
+        if letter != "G" and letter != "Y" and letter != "X":
+            print("\nInput invalid! Please only enter G for Green, Y for Yellow and X for Grey.")
+            return False
+
+    return True
 
 
 def check_win(result):
@@ -50,7 +63,11 @@ if __name__ == "__main__":
     for i in range(NUMBER_OF_GUESSES):
         previous_guesses.append(guess)
 
-        wordle_result = handle_input()
+        input_invalid = True
+
+        while input_invalid:
+            wordle_result = take_input()
+            input_invalid = not validate_input(wordle_result)
 
         check_win(wordle_result)
 
