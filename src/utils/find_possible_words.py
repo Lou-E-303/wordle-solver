@@ -6,13 +6,15 @@ from utils.valid_answers import get_valid_answers
 # 2. They have the green letters in the correct indices ✅
 # 3. They have the yellow letters in them somewhere (but not at the same index as previous guess) ✅
 # 4. They haven't got the grey letters in them anywhere, unless the grey letter is also an unresolved yellow ✅
-# 5. They haven't got green or yellow letters in indices which have failed before ✅
+# 5. They haven't got more of the same letters than unresolved yellows if there is a grey of that letter ✅
+# 6. They haven't got green or yellow letters in indices which have failed before ✅
 
 
 def find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses):
     possible_words = get_valid_answers()
 
     for possible_word in possible_words.copy():
+
         if possible_word in previous_guesses:
             possible_words.remove(possible_word)
 
@@ -46,6 +48,15 @@ def yellow_letters_correct(yellow_letters, possible_word):
 
 def grey_letters_correct(grey_letters, yellow_letters, green_letters, possible_word):
     for i, letter in enumerate(possible_word):
+
+        grey_letter_values = [item for sublist in list(grey_letters.values()) for item in sublist]
+
+        if letter in yellow_letters.values() and letter in grey_letter_values:
+            yellow_letter_maximum = list(yellow_letters.values()).count(letter)
+            yellow_letter_count = list(possible_word).count(letter)
+            if yellow_letter_count > yellow_letter_maximum:
+                return False
+
         if letter in green_letters or letter in yellow_letters.values():
             if i in grey_letters:
                 if letter in grey_letters[i]:

@@ -17,7 +17,8 @@ This will provide you with a reasonable first guess<sup>1</sup> and then ask you
 - **Jan 4th:** v0.1 up and running!
 - **Jan 5th:** Added better input method
 - **Jan 8th:** Added official Wordle dictionary
-- **Jan 16th:** Fixed major bug where grey letters weren't being discounted properly  
+- **Jan 16th:** Fixed major bug where grey letters weren't being discounted properly
+- **Feb 10th:** Fixed similar bug as above, v1.0 now up and running! 🥳
 
 [Trello Board.](https://trello.com/b/6UknNHIy/wordle-solver)
 
