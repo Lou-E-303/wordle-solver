@@ -26,11 +26,11 @@ def take_input():
 
 def validate_input(user_input):
     if len(user_input) != 5:
-        print("\nInput invalid! Please enter only five letters. \n")
+        print("\nInput invalid! Please enter only five letters.")
         return False
 
     for letter in user_input:
-        if letter != "G" and letter != "Y" and letter != "X":
+        if letter not in 'GYX':
             print("\nInput invalid! Please only enter G for Green, Y for Yellow and X for Grey.")
             return False
 
@@ -39,7 +39,7 @@ def validate_input(user_input):
 
 def check_win(result):
     if result == 'GGGGG':
-        print("\nCongrats on the win! 🎉")
+        print("\nCongrats on the win! 🎉\n")
         sys.exit()
 
 
@@ -60,7 +60,7 @@ def process_guess_letters(new_guess, result):
 
 
 if __name__ == "__main__":
-    for i in range(NUMBER_OF_GUESSES):
+    for _ in range(NUMBER_OF_GUESSES):
         previous_guesses.append(guess)
 
         input_invalid = True
