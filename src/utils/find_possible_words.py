@@ -13,21 +13,13 @@ from utils.valid_answers import get_valid_answers
 def find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses):
     possible_words = get_valid_answers()
 
-    for possible_word in possible_words.copy():
+    def is_word_possible(word):
+        return (word not in previous_guesses and
+                green_letters_correct(guess, word) and
+                yellow_letters_correct(yellow_letters, word) and
+                grey_letters_correct(grey_letters, yellow_letters, green_letters, word))
 
-        if possible_word in previous_guesses:
-            possible_words.remove(possible_word)
-
-        elif not green_letters_correct(guess, possible_word):
-            possible_words.remove(possible_word)
-
-        elif not yellow_letters_correct(yellow_letters, possible_word):
-            possible_words.remove(possible_word)
-
-        elif not grey_letters_correct(grey_letters, yellow_letters, green_letters, possible_word):
-            possible_words.remove(possible_word)
-
-    return possible_words
+    return filter(is_word_possible, possible_words)
 
 
 def green_letters_correct(guess, possible_word):
@@ -47,9 +39,9 @@ def yellow_letters_correct(yellow_letters, possible_word):
 
 
 def grey_letters_correct(grey_letters, yellow_letters, green_letters, possible_word):
-    for i, letter in enumerate(possible_word):
+    grey_letter_values = [item for sublist in list(grey_letters.values()) for item in sublist]
 
-        grey_letter_values = [item for sublist in list(grey_letters.values()) for item in sublist]
+    for i, letter in enumerate(possible_word):
 
         if letter in yellow_letters.values() and letter in grey_letter_values:
             yellow_letter_maximum = list(yellow_letters.values()).count(letter)

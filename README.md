@@ -5,6 +5,8 @@ Wordle Solver v1.0
 
 A program which tries to solve [Wordle](https://www.powerlanguage.co.uk/wordle/) puzzles efficiently.
 
+<i>Note: Since the New York Times seems to be making changes to Wordle, I probably won't be maintaining this any further. However, I may still do the odd bit of code cleanup here and there.</i>
+
 # Run:
 
 Run `python3 src/solve.py`.

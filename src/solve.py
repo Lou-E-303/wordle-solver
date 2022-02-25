@@ -43,7 +43,7 @@ def check_win(result):
         sys.exit()
 
 
-def process_guess_letters(new_guess, result):
+def record_guess_letters(new_guess, result):
     for i in range(WORD_LENGTH):
         if result[i] == 'Y':
             yellow_letters[i] = new_guess[i]
@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
         check_win(wordle_result)
 
-        guess = process_guess_letters(guess, wordle_result)
+        guess = record_guess_letters(guess, wordle_result)
 
         possible_words = find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses)
 
