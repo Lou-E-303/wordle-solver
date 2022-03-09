@@ -1,4 +1,4 @@
-from utils.valid_answers import get_valid_answers
+from src.utils.valid_answers import get_valid_answers
 
 
 # Find all the words that fit the following criteria:

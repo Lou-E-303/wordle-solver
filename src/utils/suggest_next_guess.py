@@ -1,9 +1,4 @@
-from utils.find_letter_frequencies import find_letter_frequencies
-
-
-def suggest_next_guess(possible_words):
-    letter_frequencies = find_letter_frequencies()
-
+def suggest_next_guess(possible_words, letter_frequencies):
     word_score_pairs = {}
 
     for word in possible_words:

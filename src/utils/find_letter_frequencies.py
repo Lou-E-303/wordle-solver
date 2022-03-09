@@ -1,5 +1,5 @@
 from collections import Counter
-from utils.valid_answers import get_valid_answers
+from src.utils.valid_answers import get_valid_answers
 
 
 def find_letter_frequencies():
