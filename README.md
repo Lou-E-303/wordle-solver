@@ -14,7 +14,7 @@ Some Wordle alternatives which still use the old dictionary (at time of writing 
 
 # Run:
 
-Run `python3 src/solve.py`.
+Run `python3 src/main.py`.
 
 This will provide you with a reasonable first guess<sup>1</sup> and then ask you to input the colours of the tiles once your guess has been made. It will then provide its best guess at the word based upon letter frequencies of possible answers using the information it has from your previous guesses.
 
