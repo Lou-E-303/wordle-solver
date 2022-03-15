@@ -1,8 +1,7 @@
 import sys
-
-from src.utils.find_letter_frequencies import find_letter_frequencies
-from src.utils.find_possible_words import find_possible_words
-from src.utils.suggest_next_guess import suggest_next_guess
+from utils.find_letter_frequencies import find_letter_frequencies
+from utils.find_possible_words import find_possible_words
+from utils.suggest_next_guess import suggest_next_guess
 
 guess = "alert"
 previous_guesses = []
@@ -61,6 +60,8 @@ def record_guess_letters(new_guess, result):
 
 
 if __name__ == "__main__":
+    letter_frequencies = None
+
     for _ in range(NUMBER_OF_GUESSES):
         previous_guesses.append(guess)
 
@@ -76,7 +77,8 @@ if __name__ == "__main__":
 
         possible_words = find_possible_words(guess, yellow_letters, grey_letters, green_letters, previous_guesses)
 
-        letter_frequencies = find_letter_frequencies()
+        if letter_frequencies is None:
+            letter_frequencies = find_letter_frequencies()
 
         guess = suggest_next_guess(possible_words, letter_frequencies)
 
