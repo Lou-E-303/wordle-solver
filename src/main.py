@@ -4,6 +4,7 @@ from utils.find_possible_words import find_possible_words
 from utils.suggest_next_guess import suggest_next_guess
 
 guess = "alert"
+current_round = 1
 previous_guesses = []
 green_letters = []
 yellow_letters = {}
@@ -80,6 +81,8 @@ if __name__ == "__main__":
         if letter_frequencies is None:
             letter_frequencies = find_letter_frequencies()
 
-        guess = suggest_next_guess(possible_words, letter_frequencies)
+        guess = suggest_next_guess(possible_words, letter_frequencies, current_round)
+
+        current_round = current_round + 1
 
 
