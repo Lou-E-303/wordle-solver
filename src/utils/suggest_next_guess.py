@@ -4,7 +4,6 @@ def suggest_next_guess(possible_words, letter_frequencies, current_round):
     word_score_pairs = {}
     duplicate_letter_penalty = 750 - (current_round * 150)
 
-    possible_words = list(possible_words)
     if len(possible_words) == 1:
         return possible_words[0]
 

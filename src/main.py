@@ -81,7 +81,7 @@ if __name__ == "__main__":
         if letter_frequencies is None:
             letter_frequencies = find_letter_frequencies()
 
-        guess = suggest_next_guess(possible_words, letter_frequencies, current_round)
+        guess = suggest_next_guess(list(possible_words), letter_frequencies, current_round)
 
         current_round = current_round + 1
 
